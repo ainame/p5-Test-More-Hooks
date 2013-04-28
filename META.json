@@ -1,5 +1,5 @@
 {
-   "abstract" : "$module provides beofore/after hooks of subtest.",
+   "abstract" : "It provides before/after hooks of subtest.",
    "author" : [
       "ainame <ainame954@facebook.com>"
    ],
@@ -52,5 +52,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/ainame/p5-Test-More-Hooks/issues"
+      },
+      "homepage" : "https://github.com/ainame/p5-Test-More-Hooks",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/ainame/p5-Test-More-Hooks.git",
+         "web" : "https://github.com/ainame/p5-Test-More-Hooks"
+      }
+   },
    "version" : "0.01"
 }

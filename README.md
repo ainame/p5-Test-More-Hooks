@@ -1,10 +1,22 @@
 # NAME
 
-Test::More::Hooks - It's new $module
+Test::More::Hooks - It provides before/after hooks of subtest.
 
 # SYNOPSIS
 
+    use Test::More;
     use Test::More::Hooks;
+
+    subtest "some context" => sub {
+        my $subject;
+        before { $subject = Foo->new; };
+        after  { undef $subject; };
+
+        subtest "given some argument" => sub {
+            my $actual = $subject->foo(1,2,3);
+            is $actual, 10;
+        };
+    };
 
 # DESCRIPTION
 
