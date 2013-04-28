@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "$module provides beofore/after hooks of subtest.",
    "author" : [
       "ainame <ainame954@facebook.com>"
    ],
