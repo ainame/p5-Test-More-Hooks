@@ -1,6 +1,8 @@
 Revision history for Perl extension Test-More-Hooks
 
-{{$NEXT}}
+0.02 2013-04-29T12:11:16Z
+
+    - add dependency description for cpan testers 
 
 0.01 2013-04-28T09:11:16Z
 

@@ -43,13 +43,11 @@
       "runtime" : {
          "requires" : {
             "perl" : "5.008005"
-	     "Test::Simple" : "0.98",
          }
       },
       "test" : {
          "requires" : {
-            "Test::More" : "0.98",
-            "Test::Exception" : "0.32"
+            "Test::More" : "0.98"
          }
       }
    },
@@ -65,5 +63,5 @@
          "web" : "https://github.com/ainame/p5-Test-More-Hooks"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02"
 }
