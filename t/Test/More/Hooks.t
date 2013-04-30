@@ -9,28 +9,28 @@ BEGIN {
 }
 
 subtest '$Level' => sub {
-    is $Test::More::Hooks::Level, 1;
+    is Test::More::Hooks::level, 1;
 
     subtest '$Level + 1' => sub {
-        is $Test::More::Hooks::Level, 2;
+        is Test::More::Hooks::level, 2;
     };
 
-    is $Test::More::Hooks::Level, 1;
+    is Test::More::Hooks::level, 1;
 
     subtest '$Level + 1' => sub {
-        is $Test::More::Hooks::Level, 2;
+        is Test::More::Hooks::level, 2;
 
         subtest '$Level + 2' => sub {
-            is $Test::More::Hooks::Level, 3;
+            is Test::More::Hooks::level, 3;
         };
 
-        is $Test::More::Hooks::Level, 2;
+        is Test::More::Hooks::level, 2;
     };
 
-    is $Test::More::Hooks::Level, 1;
+    is Test::More::Hooks::level, 1;
 };
 
-is $Test::More::Hooks::Level, 0;
+is Test::More::Hooks::level, 0;
 
 subtest "before()" => sub {
     my @before = ();

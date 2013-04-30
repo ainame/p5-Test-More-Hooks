@@ -9,9 +9,9 @@ use Test::Builder::Module;
 our @ISA    = qw(Test::Builder::Module);
 our @EXPORT = qw(subtest before after);
 
-our $Level = 0;
-our $BEFORE = {};
-our $AFTER  = {};
+my $LEVEL  = 0;
+my $BEFORE = {};
+my $AFTER  = {};
 
 BEGIN {
     croak "Test::More::Hooks must be loaded after Test::More."
@@ -20,25 +20,29 @@ BEGIN {
 
 sub subtest {
     my ($name, $subtests) = @_;
-    $BEFORE->{$Level}->() if 'CODE' eq ref $BEFORE->{$Level};
-    $Level += 1;
+    $BEFORE->{$LEVEL}->() if 'CODE' eq ref $BEFORE->{$LEVEL};
+    $LEVEL += 1;
 
     my $tb = Test::More::Hooks->builder;
     my $result = $tb->subtest(@_);
 
-    $Level -= 1;
-    $AFTER->{$Level}->() if 'CODE' eq ref $AFTER->{$Level};
+    $LEVEL -= 1;
+    $AFTER->{$LEVEL}->() if 'CODE' eq ref $AFTER->{$LEVEL};
     return $result;
 }
 
 sub before (&) {
     my $block = shift;
-    $BEFORE->{$Level} = $block;
+    $BEFORE->{$LEVEL} = $block;
 }
 
 sub after (&) {
     my $block = shift;
-    $AFTER->{$Level} = $block;
+    $AFTER->{$LEVEL} = $block;
+}
+
+sub level {
+    return $LEVEL;
 }
 
 1;
