@@ -2,6 +2,8 @@ Revision history for Perl extension Test-More-Hooks
 
 {{$NEXT}}
 
+0.0.3 2013-04-30T04:04:14Z
+
 0.03 2013-04-30T03:46:41Z
 
     - bug fix: don't clean hooks when enter out of scope of hooks
