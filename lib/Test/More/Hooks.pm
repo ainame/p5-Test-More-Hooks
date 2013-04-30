@@ -25,6 +25,7 @@ sub subtest {
 
     my $tb = Test::More::Hooks->builder;
     my $result = $tb->subtest(@_);
+    _clean_hooks();
 
     $LEVEL -= 1;
     $AFTER->{$LEVEL}->() if 'CODE' eq ref $AFTER->{$LEVEL};
@@ -43,6 +44,11 @@ sub after (&) {
 
 sub level {
     return $LEVEL;
+}
+
+sub _clean_hooks {
+    $BEFORE->{$LEVEL} = undef;
+    $AFTER->{$LEVEL}  = undef;
 }
 
 1;
