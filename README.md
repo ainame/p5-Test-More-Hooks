@@ -20,7 +20,8 @@ Test::More::Hooks - It provides before/after hooks of subtest.
 
 # DESCRIPTION
 
-Test::More::Hooks is ...
+Test::More::Hooks is simply testing module. This provides only before/after hooks
+for Test::More::subtest based test cases.
 
 # LICENSE
 
