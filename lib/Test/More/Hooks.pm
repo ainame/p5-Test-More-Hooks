@@ -9,7 +9,8 @@ use Test::Builder::Module;
 our @ISA    = qw(Test::Builder::Module);
 our @EXPORT = qw(subtest before after);
 
-my $LEVEL  = 0;
+# $ LEVEL is controlled by the local variable.
+our $LEVEL  = 0;
 my $BEFORE = {};
 my $AFTER  = {};
 
@@ -21,13 +22,15 @@ BEGIN {
 sub subtest {
     my ($name, $subtests) = @_;
     $BEFORE->{$LEVEL}->() if 'CODE' eq ref $BEFORE->{$LEVEL};
-    $LEVEL += 1;
 
-    my $tb = Test::More::Hooks->builder;
-    my $result = $tb->subtest(@_);
-    _clean_hooks();
+    my $result;
+    {
+        local $LEVEL = $LEVEL + 1;
+        my $tb = Test::More::Hooks->builder;
+        $result = $tb->subtest(@_);
+        _clean_hooks();
+    };
 
-    $LEVEL -= 1;
     $AFTER->{$LEVEL}->() if 'CODE' eq ref $AFTER->{$LEVEL};
     return $result;
 }
