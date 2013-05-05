@@ -2,9 +2,10 @@ Revision history for Perl extension Test-More-Hooks
 
 {{$NEXT}}
 
-0.1 2013-05-05T04:02:54Z
+0.05 2013-05-05T04:10:57Z
 
     - refactor variable control method
+    - update META.json to fix faild tests
     - update document
 
 0.04 2013-04-30T04:59:58Z
