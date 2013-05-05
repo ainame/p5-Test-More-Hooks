@@ -16,12 +16,31 @@ Test::More::Hooks - It provides before/after hooks of subtest.
             my $actual = $subject->foo(1,2,3);
             is $actual, 10;
         };
+
+        subtest "given other argument" => sub {
+            my $actual = $subject->foo(4,5,6);
+            is $actual, 20;
+        };
     };
 
 # DESCRIPTION
 
 Test::More::Hooks is simply testing module. This provides only before/after hooks
 for Test::More::subtest based test cases.
+
+# FUNCTIONS
+
+## before BLOCK
+
+Test::More::Hooks export this function by default.
+If you given BLOCK for 'before' function, Test::More::Hooks would register this BLOCK with the 'before stack'.
+Then, it is executed before the process continue to each subtest blocks of same level variable scope.
+
+## after BLOCK
+
+Test::More::Hooks export this function by default.
+If you given BLOCK for 'after' function, Test::More::Hooks would register this BLOCK with the 'after stack'.
+Then, it is executed after the process go out each subtest blocks of same level variable scope.
 
 # LICENSE
 
