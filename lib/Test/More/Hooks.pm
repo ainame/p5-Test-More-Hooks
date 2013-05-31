@@ -3,7 +3,7 @@ use 5.008005;
 use strict;
 use warnings;
 
-our $VERSION = "0.11";
+our $VERSION = "0.12";
 use Carp qw(croak);
 use Test::Builder::Module;
 our @ISA    = qw(Test::Builder::Module);
